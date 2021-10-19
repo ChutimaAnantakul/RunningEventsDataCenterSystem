@@ -1,0 +1,11 @@
+.MuiInput-underline:after{
+    border-bottom: 0px solid #1F81C5 !important;
+}
+.MuiSelect-select:focus{
+    background-color: rgba(0,0,0,0) !important;
+}
+
+.MuiInput-underline:before{
+    border-bottom: 0px solid #1F81C5 !important;
+
+}
