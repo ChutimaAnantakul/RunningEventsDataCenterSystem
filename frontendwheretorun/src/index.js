@@ -9,6 +9,7 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import Navbar from './components/layout/Navbar'
 import Register from './components/Register'
 import Login from './components/Login';
+import Forget from './components/Forget';
 
 const apolloClient = new ApolloClient({
   uri: process.env.REACT_APP_API_URI,
@@ -17,13 +18,14 @@ const apolloClient = new ApolloClient({
 
 ReactDOM.render(
   <React.StrictMode>
-   <Navbar/>
-   <ApolloProvider client={apolloClient}>
+    <Navbar />
+    <ApolloProvider client={apolloClient}>
       <BrowserRouter>
         <Switch>
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
-   
+          <Route path="/forget" component={Forget} />
+
         </Switch>
       </BrowserRouter>
     </ApolloProvider>
