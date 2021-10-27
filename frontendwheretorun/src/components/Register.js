@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-
+// import { TextInput } from 'react-native-paper';
 
 const Register = () => {
     const [startDate, setStartDate] = useState(new Date());
@@ -30,7 +30,9 @@ const Register = () => {
                                 <div class="row register-form">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="First Name *" value="" />
+
+                                            <input type="text" class="form-control" placeholder="First Name *" value=""  />
+                                            {/* left={<TextInput.Icon name="eye" />} */}
                                         </div>
                                     </div>
                                     <div class="col-md-6">
