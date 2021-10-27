@@ -8,7 +8,7 @@ var graphqlHTTP = require('express-graphql').graphqlHTTP;
 var schema = require('./graphql/usersSchemas');
 var cors = require("cors");
 
-mongoose.connect('mongodb+srv://chutima:baiifern16@clusterwheretorun.wtmxe.mongodb.net/test', { promiseLibrary: require('bluebird'), useNewUrlParser: true })
+mongoose.connect('mongodb+srv://jirawan:Riw909358@cluster0.9tpki.mongodb.net/wheretorun', { promiseLibrary: require('bluebird'), useNewUrlParser: true })
   .then(() =>  console.log('connection successful'))
   .catch((err) => console.error(err));
 

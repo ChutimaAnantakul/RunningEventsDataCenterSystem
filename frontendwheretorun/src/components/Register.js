@@ -1,7 +1,37 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import React, { Component } from 'react';
+import gql from "graphql-tag";
+import { Mutation } from "react-apollo";
+import { Link } from 'react-router-dom';
 // import { TextInput } from 'react-native-paper';
+
+const ADD_USER = gql`
+    mutation Adduser(
+        $firstname: String!,
+        $lassname: String!,
+        $email: String!,
+        $password: String!,
+        $confirmpassword: String!,
+        $idcard: String!,
+        $phone: Int!,
+        $brithday: Date!,
+        $gender: String!,) {
+        addUser(
+            firstname: $firstname,
+            lassname: $lassname,
+            email: $email,
+            password: $password,
+            confirmpassword: $confirmpassword,
+            idcard: $idcard,
+            phone: $phone,
+            brithday: $brithday,
+            gender: $gender) {
+            _id
+        }
+    }
+`;
 
 const Register = () => {
     const [startDate, setStartDate] = useState(new Date());

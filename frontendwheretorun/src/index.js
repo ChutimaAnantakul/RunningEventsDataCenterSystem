@@ -4,17 +4,14 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import { ApolloClient, ApolloProvider } from "@apollo/client";
 
 import Navbar from './components/layout/Navbar'
 import Register from './components/Register'
 import Login from './components/Login';
 import Forget from './components/Forget';
 
-const apolloClient = new ApolloClient({
-  uri: process.env.REACT_APP_API_URI,
-  cache: new InMemoryCache(),
-});
+const apolloClient = new ApolloClient();
 
 ReactDOM.render(
   <React.StrictMode>
