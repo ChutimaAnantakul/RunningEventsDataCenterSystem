@@ -29,10 +29,10 @@ var userType = new GraphQLObjectType({
         //   type: GraphQLString
         // },
         idcard: {
-          type: GraphQLString
+          type: GraphQLInt
         },
         phone: {
-          type: GraphQLString
+          type: GraphQLInt
         },
         birthday: {
           type: GraphQLString
@@ -107,10 +107,10 @@ var userType = new GraphQLObjectType({
             //   type: new GraphQLNonNull(GraphQLString)
             // },
             idcard: {
-              type: new GraphQLNonNull(GraphQLString)
+              type: new GraphQLNonNull(GraphQLInt)
             },
             phone: {
-              type: new GraphQLNonNull(GraphQLString)
+              type: new GraphQLNonNull(GraphQLInt)
             },
             birthday: {
               type: new GraphQLNonNull(GraphQLString)
@@ -154,10 +154,10 @@ var userType = new GraphQLObjectType({
             //   type: new GraphQLNonNull(GraphQLString)
             // },
             idcard: {
-              type: new GraphQLNonNull(GraphQLString)
+              type: new GraphQLNonNull(GraphQLInt)
             },
             phone: {
-              type: new GraphQLNonNull(GraphQLString)
+              type: new GraphQLNonNull(GraphQLInt)
             },
             birthday: {
               type: new GraphQLNonNull(GraphQLString)
