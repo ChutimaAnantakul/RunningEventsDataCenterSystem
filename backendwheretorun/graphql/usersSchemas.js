@@ -25,13 +25,16 @@ var userType = new GraphQLObjectType({
         password: {
           type: GraphQLString
         },
+        // confirmpassword: {
+        //   type: GraphQLString
+        // },
         idcard: {
           type: GraphQLString
         },
         phone: {
           type: GraphQLString
         },
-        brithday: {
+        birthday: {
           type: GraphQLString
         },
         gender: {
@@ -100,13 +103,16 @@ var userType = new GraphQLObjectType({
             password: {
               type: new GraphQLNonNull(GraphQLString)
             },
+            // confirmpassword: {
+            //   type: new GraphQLNonNull(GraphQLString)
+            // },
             idcard: {
               type: new GraphQLNonNull(GraphQLString)
             },
             phone: {
               type: new GraphQLNonNull(GraphQLString)
             },
-            brithday: {
+            birthday: {
               type: new GraphQLNonNull(GraphQLString)
             },
             gender: {
@@ -144,13 +150,16 @@ var userType = new GraphQLObjectType({
             password: {
               type: new GraphQLNonNull(GraphQLString)
             },
+            // confirmpassword: {
+            //   type: new GraphQLNonNull(GraphQLString)
+            // },
             idcard: {
               type: new GraphQLNonNull(GraphQLString)
             },
             phone: {
               type: new GraphQLNonNull(GraphQLString)
             },
-            brithday: {
+            birthday: {
               type: new GraphQLNonNull(GraphQLString)
             },
             gender: {
@@ -164,7 +173,7 @@ var userType = new GraphQLObjectType({
             // }
           },
           resolve(root, params) {
-            return UserModel.findByIdAndUpdate(params.id, { name: params.name, email: params.email, password: params.password, idcard: params.idcard, phone: params.phone, brithday: params.brithday, gender: params.gender, updated_date: new Date() }, function (err) {
+            return UserModel.findByIdAndUpdate(params.id, { name: params.name, email: params.email, password: params.password, idcard: params.idcard, phone: params.phone, birthday: params.birthday, gender: params.gender, updated_date: new Date() }, function (err) {
               if (err) return next(err);
             });
           }
