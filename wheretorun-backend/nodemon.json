@@ -1,0 +1,7 @@
+{
+    "env":{
+        "MONGO_USER":"jirawan",
+        "MONGO_PASSWORD":"Riw909358",
+        "MONGO_DB":"wheretorun"
+    }
+}
