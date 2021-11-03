@@ -1,8 +1,60 @@
 import React, { Component } from "react";
 
 class Register extends Component {
+  state = {
+    creating: false,
+    // events: []
+  };
+
+  constructor(props) {
+    super(props);
+    this.nameElRef = React.createRef();
+    this.emailElRef = React.createRef();
+    this.passwordElRef = React.createRef();
+    this.phoneElRef = React.createRef();
+    this.idcardElRef = React.createRef();
+    this.genderElRef = React.createRef();
+    this.birthdateElRef = React.createRef();
+  }
+
+  startCreateEventHandler = () => {
+    this.setState({ creating: true });
+  };
+
+
+  CancelHandler = () => {
+    this.setState({ creating: false });
+  };
+
+  submitHandler = () => {
+    this.setState({ creating: false });
+    const name = this.nameElRef.current.value;
+    const email = this.emailElRef.current.value;
+    const password = this.passwordElRef.current.value;
+    const phone = this.phoneElRef.current.value;
+    const idcard = this.idcardElRef.current.value;
+    const gender = this.genderElRef.current.value;
+    const birthdate = this.birthdateElRef.current.value;
+
+    if (
+      birthdate.trim().length === 0 ||
+      name.trim().length === 0 ||
+      email.trim().length === 0 ||
+      phone.trim().length === 0 ||
+      idcard.trim().length === 0 ||
+      gender.trim().length === 0 ||
+      password.trim().length === 0
+    ) {
+      return;
+    };
+
+    const user = { name, email, password, phone, idcard, gender, birthdate };
+    console.log(user);
+  };
+
   render() {
     return (
+    
       <>
         <div class="container register">
           <div class="row">
@@ -56,7 +108,7 @@ class Register extends Component {
                   <div class="col-10">
                     <div class="limiter">
                       <div class=" p-l-50  p-t-65 p-b-34">
-                        <form class="login100-form validate-form">
+                        <form class="login100-form validate-form" >
                           <span class="login100-form-title p-b-49">
                             Register
                           </span>
@@ -71,94 +123,11 @@ class Register extends Component {
                                 </span>
                                 <input
                                   class="input100"
-                                  type="name"
+                                  type="text"
                                   id="name"
-                                  ref=""
+                                  ref={this.nameElRef}
                                   name="username"
                                   placeholder="Type your name"
-                                />
-                                <span
-                                  class="focus-input100"
-                                  data-symbol="&#xf206;"
-                                ></span>
-                              </div>
-                              <div
-                                class="wrap-input100 validate-input m-b-23"
-                                data-validate="Email is reauired"
-                              >
-                                <span class="label-input100" htmlFor="email">
-                                  Email
-                                </span>
-                                <input
-                                  class="input100"
-                                  type="email"
-                                  id="email"
-                                  ref=""
-                                  name="username"
-                                  placeholder="Type your email"
-                                />
-                                <span
-                                  class="focus-input100"
-                                  data-symbol="&#xf206;"
-                                ></span>
-                              </div>
-                              <div
-                                class="wrap-input100 validate-input m-b-23"
-                                data-validate="Password is required"
-                              >
-                                <span class="label-input100" htmlFor="password">
-                                  Password
-                                </span>
-                                <input
-                                  class="input100"
-                                  type="password"
-                                  id="password"
-                                  ref=""
-                                  name="password"
-                                  placeholder="Type your password"
-                                />
-                                <span
-                                  class="focus-input100"
-                                  data-symbol="&#xf190;"
-                                ></span>
-                              </div>
-
-                              <div
-                                class="wrap-input100 validate-input m-b-23"
-                                data-validate="Comfirm Password is required"
-                              >
-                                <span class="label-input100" htmlFor="Password">
-                                  Comfirm Password
-                                </span>
-                                <input
-                                  class="input100"
-                                  type="password"
-                                  id="password"
-                                  ref=""
-                                  name="password"
-                                  placeholder="Type your comfirm password"
-                                />
-                                <span
-                                  class="focus-input100"
-                                  data-symbol="&#xf190;"
-                                ></span>
-                              </div>
-                            </div>
-                            <div class="col-6">
-                              <div
-                                class="wrap-input100 validate-input m-b-23"
-                                data-validate="Idcard is reauired"
-                              >
-                                <span class="label-input100" htmlFor="idcard">
-                                  ID card number
-                                </span>
-                                <input
-                                  class="input100"
-                                  type="idcard"
-                                  id="idcard"
-                                  ref=""
-                                  name="idcard"
-                                  placeholder="ID card number"
                                 />
                                 <span
                                   class="focus-input100"
@@ -174,11 +143,11 @@ class Register extends Component {
                                 </span>
                                 <input
                                   class="input100"
-                                  type="phone"
+                                  type="number"
                                   id="phone"
-                                  ref=""
+                                  ref={this.phoneElRef}
                                   name="phone"
-                                  placeholder="Type your phone"
+                                  placeholder=" xxx-xxx-xxxx"
                                 />
                                 <span
                                   class="focus-input100"
@@ -197,14 +166,12 @@ class Register extends Component {
                                 </span>
 
                                 <input
-                                  placeholder="Select date"
-                                  id="example"
                                   class=" input100"
-                                  type="birthdate"
+                                  type="date"
                                   id="birthdate"
-                                  ref=""
+                                  ref={this.birthdateElRef}
                                   name="birthdate"
-                                  placeholder="Type your phone"
+                                  placeholder="Type your birthdate"
                                 />
 
                                 <span
@@ -212,6 +179,7 @@ class Register extends Component {
                                   data-symbol="&#xf206;"
                                 ></span>
                               </div>
+
                               <div
                                 class="wrap-input100 validate-input m-b-23"
                                 data-validate="Phone is reauired"
@@ -222,9 +190,9 @@ class Register extends Component {
 
                                 <select
                                   class=" input100"
-                                  type="gender"
+                                  type="text"
                                   id="gender"
-                                  ref=""
+                                  ref={this.genderElRef}
                                   name="gender"
                                   placeholder="Type your gender"
                                   aria-label="Default select example"
@@ -239,6 +207,90 @@ class Register extends Component {
                                 ></span>
                               </div>
                             </div>
+                            <div class="col-6">
+                              <div
+                                class="wrap-input100 validate-input m-b-23"
+                                data-validate="Idcard is reauired"
+                              >
+                                <span class="label-input100" htmlFor="idcard">
+                                  ID card number
+                                </span>
+                                <input
+                                  class="input100"
+                                  type="number"
+                                  id="idcard"
+                                  ref={this.idcardElRef}
+                                  name="idcard"
+                                  placeholder="ID card number"
+                                />
+                                <span
+                                  class="focus-input100"
+                                  data-symbol="&#xf206;"
+                                ></span>
+                              </div>
+
+                              <div
+                                class="wrap-input100 validate-input m-b-23"
+                                data-validate="Email is reauired"
+                              >
+                                <span class="label-input100" htmlFor="email">
+                                  Email
+                                </span>
+                                <input
+                                  class="input100"
+                                  type="text"
+                                  id="email"
+                                  ref={this.emailElRef}
+                                  name="username"
+                                  placeholder="Type your email"
+                                />
+                                <span
+                                  class="focus-input100"
+                                  data-symbol="&#xf206;"
+                                ></span>
+                              </div>
+                              <div
+                                class="wrap-input100 validate-input m-b-23"
+                                data-validate="Password is required"
+                              >
+                                <span class="label-input100" htmlFor="password">
+                                  Password
+                                </span>
+                                <input
+                                  class="input100"
+                                  type="text"
+                                  id="password"
+                                  ref={this.passwordElRef}
+                                  name="password"
+                                  placeholder="Type your password"
+                                />
+                                <span
+                                  class="focus-input100"
+                                  data-symbol="&#xf190;"
+                                ></span>
+                              </div>
+
+                              {/* <div
+                                class="wrap-input100 validate-input m-b-23"
+                                data-validate="Comfirm Password is required"
+                              >
+                                <span class="label-input100" htmlFor="password">
+                                  Comfirm Password
+                                </span>
+                                <input
+                                  class="input100"
+                                  type="text"
+                                  id="password"
+                                  ref=""
+                                  name="password"
+                                  placeholder="Type your comfirm password"
+                                />
+                                <span
+                                  class="focus-input100"
+                                  data-symbol="&#xf190;"
+                                ></span>
+                              </div> */}
+                            </div>
                           </div>
 
                           <div class="login100-form-btn">
@@ -247,8 +299,9 @@ class Register extends Component {
                                 <div class="wrap-login100-form-btn">
                                   <div class="login100-form-bgbtn"></div>
                                   <button
-                                    class="login100-form-btn "
+                                    class="login100-form-btn  "
                                     type="submit"
+                                    onSubmit={this.submitHandler}
                                   >
                                     Submit
                                   </button>
@@ -377,12 +430,9 @@ class Register extends Component {
             </div>
           </div>
         </div>
-
-   
       </>
     );
   }
 }
-
 
 export default Register;

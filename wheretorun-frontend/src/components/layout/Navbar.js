@@ -50,7 +50,7 @@ const Navbar = props => (
               <nav id="navbar" class="navbar ">
             <ul>
               <li><NavLink class="nav-link scrollto" to="/events">Home</NavLink></li> 
-              <li><NavLink class="nav-link scrollto" to="/events">Where To Runing</NavLink></li> 
+              <li><NavLink class="nav-link scrollto" to="/events">Where To Run</NavLink></li> 
               <li><NavLink class="nav-link scrollto" to="/historydate">History Data</NavLink></li>
               {context.token && ( <li class=" nav-link scrollto dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
                 <ul>

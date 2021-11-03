@@ -22,8 +22,8 @@ class Login extends Component  {
   };
 
 
-  submitHandler = event  => {
-    event.preventDefault();
+  submitHandler = user  => {
+    user.preventDefault();
     const email = this.emailEl.current.value;
     const password = this.passwordEl.current.value;
 
@@ -188,10 +188,10 @@ class Login extends Component  {
                             </div> */}
     
                           <div class="flex-col-c p-t-50">
-                            <span class="txt1 p-b-17">Or Sign Up Using</span>
+                            {/* <span class="txt1 p-b-17">Or Sign Up Using</span> */}
     
-                            <a href="/register" class="txt2">
-                              Sign Up
+                            <a href="/register" class="txt2" onClick={this.switchModeHandler}>
+                            Or Sign Up Using
                             </a>
                           </div>
                         </form>
