@@ -18,7 +18,7 @@ const auth = require("../middleware/auth");
  */
 
 router.post(
-  "/signup",
+  "/register",
   [
     check('name').not().isEmpty().withMessage('Name field cannot be empty.'),
     check("email", "Please enter a valid email").isEmail(),

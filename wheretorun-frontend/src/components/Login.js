@@ -83,17 +83,17 @@ class Login extends Component  {
                             {/* <input type="submit" name="" value="Login"/><br/> */}
                         </div>
                         <div class="col-md-9 register-right">
-                            <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                            {/* <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link active" id="member-tab" data-toggle="tab" href="#member" role="tab" aria-controls="member" aria-selected="true">Member</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" id="organizer-tab" data-toggle="tab" href="#organizer" role="tab" aria-controls="organizer" aria-selected="false">Organizer</a>
                                 </li>
-                                {/* <li class="nav-item">
+                                <li class="nav-item">
                                     <a class="nav-link" id="admin-tab" data-toggle="tab" href="#admin" role="tab" aria-controls="admin" aria-selected="false">Admin</a>
-                                </li> */}
-                            </ul>
+                                </li>
+                            </ul> */}
                             <div class="tab-content" id="myTabContent">
                                 <div class="tab-pane fade show active" id="member" role="tabpanel" aria-labelledby="member-tab">
                                     {/* <h3 class="register-heading">Apply as a Employee</h3> */}
@@ -103,7 +103,7 @@ class Login extends Component  {
                     <div class="limiter">
                       <div class=" p-l-55 p-r-55 p-t-65 p-b-54">
                         <form class="login100-form validate-form" onSubmit={this.submitHandler}>
-                          <span class="login100-form-title p-b-49">Login Member</span>
+                          <span class="login100-form-title p-b-49">Login </span>
     
                           <div
                             class="wrap-input100 validate-input m-b-23"

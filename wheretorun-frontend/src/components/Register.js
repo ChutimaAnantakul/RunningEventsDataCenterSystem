@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+
 class Register extends Component {
   state = {
     creating: false,
@@ -65,7 +66,7 @@ class Register extends Component {
               {/* <input type="submit" name="" value="Login"/><br/> */}
             </div>
             <div class="col-md-10 register-right">
-              <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+              {/* <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
                 <li class="nav-item">
                   <a
                     class="nav-link active"
@@ -92,10 +93,10 @@ class Register extends Component {
                     Organizer
                   </a>
                 </li>
-                {/* <li class="nav-item">
+                <li class="nav-item">
                                     <a class="nav-link" id="admin-tab" data-toggle="tab" href="#admin" role="tab" aria-controls="admin" aria-selected="false">Admin</a>
-                                </li> */}
-              </ul>
+                                </li>
+              </ul> */}
               <div class="tab-content" id="myTabContent">
                 <div
                   class="tab-pane fade show active"
@@ -147,11 +148,11 @@ class Register extends Component {
                                   id="phone"
                                   ref={this.phoneElRef}
                                   name="phone"
-                                  placeholder=" xxx-xxx-xxxx"
+                                  placeholder="xxxxxxxxxx"
                                 />
                                 <span
                                   class="focus-input100"
-                                  data-symbol="&#xf2b9;"
+                                  data-symbol="&#xf2b6;"
                                 ></span>
                               </div>
                               <div
@@ -176,7 +177,7 @@ class Register extends Component {
 
                                 <span
                                   class="focus-input100"
-                                  data-symbol="&#xf206;"
+                                  data-symbol="&#xf122;"
                                 ></span>
                               </div>
 
@@ -203,7 +204,7 @@ class Register extends Component {
                                 </select>
                                 <span
                                   class="focus-input100 "
-                                  data-symbol="&#xf206;"
+                                  data-symbol="&#xf211;"
                                 ></span>
                               </div>
                             </div>
@@ -221,11 +222,11 @@ class Register extends Component {
                                   id="idcard"
                                   ref={this.idcardElRef}
                                   name="idcard"
-                                  placeholder="ID card number"
+                                  placeholder="x-xxxx-xxxxx-xx-x"
                                 />
                                 <span
                                   class="focus-input100"
-                                  data-symbol="&#xf206;"
+                                  data-symbol="&#xf2c3;"
                                 ></span>
                               </div>
 
@@ -242,11 +243,11 @@ class Register extends Component {
                                   id="email"
                                   ref={this.emailElRef}
                                   name="username"
-                                  placeholder="Type your email"
+                                  placeholder="wt@gmail.com"
                                 />
                                 <span
                                   class="focus-input100"
-                                  data-symbol="&#xf206;"
+                                  data-symbol="&#xf159;"
                                 ></span>
                               </div>
                               <div
@@ -262,7 +263,7 @@ class Register extends Component {
                                   id="password"
                                   ref={this.passwordElRef}
                                   name="password"
-                                  placeholder="Type your password"
+                                  placeholder="********"
                                 />
                                 <span
                                   class="focus-input100"
@@ -270,7 +271,7 @@ class Register extends Component {
                                 ></span>
                               </div>
 
-                              {/* <div
+                              <div
                                 class="wrap-input100 validate-input m-b-23"
                                 data-validate="Comfirm Password is required"
                               >
@@ -283,13 +284,13 @@ class Register extends Component {
                                   id="password"
                                   ref=""
                                   name="password"
-                                  placeholder="Type your comfirm password"
+                                  placeholder="********"
                                 />
                                 <span
                                   class="focus-input100"
                                   data-symbol="&#xf190;"
                                 ></span>
-                              </div> */}
+                              </div>
                             </div>
                           </div>
 
