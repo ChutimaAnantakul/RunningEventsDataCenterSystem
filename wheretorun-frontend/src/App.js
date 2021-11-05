@@ -12,6 +12,7 @@ import Profile from "./components/Profile";
 import Events from "./components/Events";
 import Historydate from "./components/Historydate";
 import AuthContext from "./components/context/auth-context";
+import EditProfile from "./components/EditProfile";
 
 class App extends Component {
   state = {
@@ -52,6 +53,8 @@ class App extends Component {
                 {this.state.token && (
                   <Route path="/profile" component={Profile} />
                 )}
+                <Route path="/profile" component={Profile} />
+                <Route path="/editprofile" component={EditProfile} />
               </Switch>
             </main>
             <Footer />

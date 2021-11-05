@@ -31,8 +31,9 @@ module.exports = {
         idcard: args.userInput.idcard,
         phone: args.userInput.phone,
         // brithday:new Date().toISOString(),
-        brithday: new Date(args.userInput.brithday),
+        brithday: args.userInput.brithday,
         gender: args.userInput.gender,
+        updated_date: new Date(args.userInput.updated_date),
       });
 
       const result = await user.save();

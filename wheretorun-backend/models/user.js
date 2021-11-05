@@ -24,13 +24,14 @@ const userSchema = new Schema({
        required: true
     },
     brithday: {
-       type: Date,
+       type: String,
        required: true
     },
     gender: {
         type: String,
         required: true
       },
+    updated_date: { type: Date, default: Date.now },
    
   });
   
