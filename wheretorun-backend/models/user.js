@@ -16,11 +16,11 @@ const userSchema = new Schema({
         required: true
       },
     idcard: {
-        type: Number,
+        type: String,
         required: true
       },
     phone: {
-       type: Number,
+       type: String,
        required: true
     },
     brithday: {
@@ -31,7 +31,10 @@ const userSchema = new Schema({
         type: String,
         required: true
       },
-    updated_date: { type: Date, default: Date.now },
+    // image: {
+    //   type: String,
+    //   required: true
+    // },
    
   });
   

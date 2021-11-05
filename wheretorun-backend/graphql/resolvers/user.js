@@ -33,7 +33,7 @@ module.exports = {
         // brithday:new Date().toISOString(),
         brithday: args.userInput.brithday,
         gender: args.userInput.gender,
-        updated_date: new Date(args.userInput.updated_date),
+        // image: args.userInput.image,
       });
 
       const result = await user.save();
@@ -43,6 +43,7 @@ module.exports = {
       throw err;
     }
   },
+  
   login: async ({ email, password }) => {
     const user = await User.findOne({ email:email});
     if(!user){

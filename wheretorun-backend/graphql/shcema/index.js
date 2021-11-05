@@ -10,14 +10,10 @@ const newLocal = `
         phone: String!
         brithday: String!
         gender: String!
+      
     }
-    type LoginAuthData{
-        userId: String!
-        token: String!
-        tokenExpiration: Int!
-    }
-    
-    input UserIntput{
+    type Orgenizer{
+        _id:String!
         name: String!
         email: String!
         password: String!
@@ -25,6 +21,34 @@ const newLocal = `
         phone: String!
         brithday: String!
         gender: String!
+      
+    }
+    type LoginAuthData{
+        userId: String!
+        token: String!
+        tokenExpiration: Int!
+    }
+    
+    input UserInput{
+        name: String!
+        email: String!
+        password: String!
+        idcard: String!
+        phone: String!
+        brithday: String!
+        gender: String!
+    
+    
+    }
+    input OrgenizerInput{
+        name: String!
+        email: String!
+        password: String!
+        idcard: String!
+        phone: String!
+        brithday: String!
+        gender: String!
+    
     
     }
     
@@ -34,7 +58,9 @@ const newLocal = `
     
     }
     type RootMuattion{
-        createUser(userInput : UserIntput): User
+         createUser(userInput: UserInput): User
+        
+
         
     }
     

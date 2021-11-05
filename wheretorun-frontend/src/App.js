@@ -44,10 +44,11 @@ class App extends Component {
             <main>
               <Switch>
                 {!this.state.token && (<Redirect from="/" to="/login" exact />)}
+            
                 {this.state.token && <Redirect from="/" to="/events" exact />}
                 {this.state.token && (<Redirect from="/login" to="/events" exact />)}
                 <Route path="/register" component={Register} />
-                <Route path="/events" component={Events} />
+                <Route path="/events" component={Events} /> 
                 <Route path="/historydate" component={Historydate} />
                 {!this.state.token && ( <Route path="/login" component={Login} /> )}
                 {this.state.token && (
