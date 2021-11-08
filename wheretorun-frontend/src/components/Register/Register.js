@@ -1,14 +1,10 @@
-import React, { Component } from "react";
+import React, { Component } from "react";   
+import { NavLink } from "react-router-dom";
 
-import AuthContext from "./context/auth-context";
-
-class Register extends Component {
+class Registermember extends Component {
   state = {
     isRegister: true,
   };
-
-  static contextType = AuthContext;
-
   constructor(props) {
     super(props);
     this.nameRef = React.createRef();
@@ -20,11 +16,9 @@ class Register extends Component {
     this.birthdateRef = React.createRef();
     // this.imageRef = React.createRef();
   }
-
   CancelHandler = () => {
     this.setState({ isRegister: false });
   };
-
   ComfirmHandler = () => {
     this.setState({ isRegister: false });
     const name = this.nameRef.current.value;
@@ -93,7 +87,6 @@ class Register extends Component {
 
 
 
-
   };
 
   render() {
@@ -113,37 +106,36 @@ class Register extends Component {
                   {/* <input type="submit" name="" value="Login"/><br/> */}
                 </div>
                 <div className="col-md-10 register-right">
-                  {/* <ul className="nav nav-tabs nav-justified" id="myTab" role="tablist">
-                <li className="nav-item">
-                  <a
-                    className="nav-link active"
+                <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                <li class="nav-item">
+                  <NavLink
+                    class="nav-link active"
                     id="member-tab"
                     data-toggle="tab"
-                    href="#member"
+                    to="/register"
                     role="tab"
                     aria-controls="member"
-                    aria-selected="true"
+                    aria-selected="false"
                   >
                     Member
-                  </a>
+                  </NavLink>
                 </li>
-                <li className="nav-item">
-                  <a
-                    className="nav-link"
+                <li class="nav-item">
+                  <NavLink
+                    class="nav-link"
                     id="organizer-tab"
                     data-toggle="tab"
-                    href="#organizer"
+                    to="/organizer"
                     role="tab"
                     aria-controls="organizer"
                     aria-selected="false"
                   >
                     Organizer
-                  </a>
+                  </NavLink>
                 </li>
-                <li className="nav-item">
-                                    <a className="nav-link" id="admin-tab" data-toggle="tab" href="#admin" role="tab" aria-controls="admin" aria-selected="false">Admin</a>
-                                </li>
-              </ul> */}
+               
+              </ul>
+
                   <div className="tab-content" id="myTabContent">
                     <div
                       className="tab-pane fade show active"
@@ -159,7 +151,7 @@ class Register extends Component {
                             <form
                               className="login100-form validate-form"
                               onSubmit={this.ComfirmHandler}
-                              onCancel={this.modalCancelHandler}
+                              
                             >
                               <span className="login100-form-title p-b-49">
                                 Register
@@ -378,12 +370,12 @@ class Register extends Component {
                                   <div claas="col-6">
                                 <br />
                                 <div className="wrap-login100-form-btn">
-                                  <div className="login100-form-bgbtn"></div>
+                                  <div className="login100-form-reg-cancel-bgbtn"></div>
                                   {/* <button className="login100-form-btn " type ="submit">Login</button> */}
                                   <button
                                     type="button"
                                     className="login100-form-btn"
-                                    onClick={this.CancelHandler}
+                                    // onClick={this.CancelHandler}
                                     href="/register"
                                   >
                                     Cancel
@@ -413,4 +405,4 @@ class Register extends Component {
   }
 }
 
-export default Register;
+export default Registermember;

@@ -1,12 +1,13 @@
 import React from "react";
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 import AuthContext from "../context/auth-context";
 
-const Navbar = props => (
+
+const Navbar = (props) => (
   <AuthContext.Consumer>
-    {context => {
-       return (
-      <>
+    {(context) => {
+      return (
+        <>
           <section id="topbar" class="d-flex align-items-center">
             <div class="container d-flex justify-content-center justify-content-md-between">
               <div class="contact-info d-flex align-items-center">
@@ -33,8 +34,7 @@ const Navbar = props => (
               </div>
             </div>
           </section>
-    
-         
+
           <header id="header" class="d-flex align-items-center">
             <div class="container d-flex align-items-center justify-content-between">
               <h1 class="logo">
@@ -42,41 +42,72 @@ const Navbar = props => (
                   WhereToRun<span>.</span>
                 </a>
               </h1>
-    
+
               <a href="/events" class="logo">
                 <img src="assets/img/logo.png" alt="" />
               </a>
-    
+
               <nav id="navbar" class="navbar ">
-            <ul>
-              <li><NavLink class="nav-link scrollto" to="/events">Home</NavLink></li> 
-              <li><NavLink class="nav-link scrollto" to="/events">Where To Run</NavLink></li> 
-              <li><NavLink class="nav-link scrollto" to="/historydate">History Data</NavLink></li>
-              {context.token && ( <li class=" nav-link scrollto dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
                 <ul>
-                  <React.Fragment>
-                  <li><NavLink  class="nav-link scrollto" to="/profile">Profile</NavLink></li> 
-                  <li><NavLink to="#" onClick={context.logout}>Logout</NavLink></li>
-                  </React.Fragment>
+                  <li>
+                    <NavLink class="nav-link scrollto" to="/events">
+                      Home
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink class="nav-link scrollto" to="/events">
+                      Where To Run
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink class="nav-link scrollto" to="/historydate">
+                      History Data
+                    </NavLink>
+                  </li>
+                  {context.token && (
+                    <li class=" nav-link scrollto dropdown">
+                      <a href="#">
+                        <span>Drop Down</span>{" "}
+                        <i class="bi bi-chevron-down"></i>
+                      </a>
+                      <ul>
+                        <React.Fragment>
+                          <li>
+                            <NavLink class="nav-link scrollto" to="/profile">
+                              Profile
+                            </NavLink>
+                          </li>
+                          <li>
+                            <NavLink to="#" onClick={context.logout}>
+                              Logout
+                            </NavLink>
+                          </li>
+                        </React.Fragment>
+                      </ul>
+                    </li>
+                  )}
+                  {/* {context.token && ( <li><NavLink type="button" class="btn btn-primary"to="#" onClick={context.logout}>Logout</NavLink></li>)} */}
+
+                  {!context.token && (
+                    <li>
+                      <NavLink
+                        type="button"
+                        class="btn btn-primary btn-lg btn-block"
+                        to="/login"
+                      >
+                        Login
+                      </NavLink>
+                    </li>
+                  )}
                 </ul>
-            </li>
-           )}
-            {/* {context.token && ( <li><NavLink type="button" class="btn btn-primary"to="#" onClick={context.logout}>Logout</NavLink></li>)} */}
-              
-            {!context.token && (<li><NavLink type="button" class="btn btn-primary btn-lg btn-block" to="/login">Login</NavLink></li> )}
-              
-              
-            </ul>
-            <i class="bi bi-list mobile-nav-toggle"></i>
-          </nav>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+              </nav>
             </div>
           </header>
-         </>
-      
+        </>
       );
-}}
-  
-</AuthContext.Consumer>
+    }}
+  </AuthContext.Consumer>
 );
 
 export default Navbar;

@@ -12,7 +12,7 @@ const newLocal = `
         gender: String!
       
     }
-    type Orgenizer{
+    type Organizer{
         _id:String!
         name: String!
         email: String!
@@ -28,6 +28,11 @@ const newLocal = `
         token: String!
         tokenExpiration: Int!
     }
+    type LoginOrganizerAuthData{
+        organizerId: String!
+        token: String!
+        tokenExpiration: Int!
+    }
     
     input UserInput{
         name: String!
@@ -40,7 +45,7 @@ const newLocal = `
     
     
     }
-    input OrgenizerInput{
+    input OrganizerInput{
         name: String!
         email: String!
         password: String!
@@ -55,10 +60,12 @@ const newLocal = `
     type RootQuery{
         users:[User!]!
         login(email: String!, password: String!): LoginAuthData!
+        loginOrg(email: String!, password: String!): LoginOrganizerAuthData!
     
     }
     type RootMuattion{
          createUser(userInput: UserInput): User
+         createOrganizer(organizerInput: OrganizerInput): Organizer
         
 
         

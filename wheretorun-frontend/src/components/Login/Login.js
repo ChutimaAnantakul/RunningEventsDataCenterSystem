@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import AuthContext from "./context/auth-context";
+import AuthContext from "../context/auth-context";
 import { NavLink } from "react-router-dom";
 
 class Login extends Component {
@@ -74,14 +74,14 @@ class Login extends Component {
       <>
         <div class="container login">
           <div class="row">
-            <div class="col-md-3 register-left">
+            <div class="col-md-3 login-left">
               <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
               <h3>Welcome</h3>
               <h6>You are 30 seconds away from earning your own money!</h6>
               {/* <input type="submit" name="" value="Login"/><br/> */}
             </div>
-            <div class="col-md-9 register-right">
-              <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+            <div class="col-md-9 login-right">
+              {/* <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
                 <li class="nav-item">
                   <NavLink
                     class="nav-link active"
@@ -94,21 +94,21 @@ class Login extends Component {
                   >
                     Member
                   </NavLink>
-                </li>
-                <li class="nav-item">
+                </li> */}
+                {/* <li class="nav-item">
                   <NavLink
                     class="nav-link"
                     id="organizer-tab"
                     data-toggle="tab"
-                    to="#organizer"
+                    to="/loginorg"
                     role="tab"
                     aria-controls="organizer"
                     aria-selected="false"
                   >
                     Organizer
                   </NavLink>
-                </li>
-                <li class="nav-item">
+                </li> */}
+                {/* <li class="nav-item">
                   <NavLink
                     class="nav-link"
                     id="admin-tab"
@@ -120,8 +120,8 @@ class Login extends Component {
                   >
                     Admin
                   </NavLink>
-                </li>
-              </ul>
+                </li> */}
+              {/* </ul> */}
 
               <div class="tab-content" id="myTabContent">
                 <div
