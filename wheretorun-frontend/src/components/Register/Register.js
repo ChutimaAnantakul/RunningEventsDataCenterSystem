@@ -1,9 +1,17 @@
 import React, { Component } from "react";   
 import { NavLink } from "react-router-dom";
+import { Alert } from 'react-alert'
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 class Registermember extends Component {
+   
   state = {
     isRegister: true,
+    input: {},
+    errors: {},
+    isvalid: false,
+    message: "",
   };
   constructor(props) {
     super(props);
@@ -15,6 +23,7 @@ class Registermember extends Component {
     this.genderRef = React.createRef();
     this.birthdateRef = React.createRef();
     // this.imageRef = React.createRef();
+    // this.onChange = this.onChange.bind(this);
   }
   CancelHandler = () => {
     this.setState({ isRegister: false });
@@ -29,7 +38,7 @@ class Registermember extends Component {
     const gender = this.genderRef.current.value;
     const birthdate = this.birthdateRef.current.value;
     // const image = this.imageRef.current.value;
-
+    
     if (
       name.trim().length === 0 ||
       email.trim().length === 0 ||
@@ -84,12 +93,66 @@ class Registermember extends Component {
         console.log(err);
       });
 
+      confirmAlert({
+        // title: 'Confirm to submit',
+        message: 'สมัครสมาชิกสำเร็จ',
+        buttons: [
+          {
+            label: 'close',
+            // onClick: () => alert('Click Yes')
+          }
+          // {
+          //   label: 'No',
+          //   onClick: () => alert('Click No')
+          // }
+        ]
+      });
 
-
-
+     
+        // const isEmailValid = this.emailValidation();
+        // this.setState(
+        //   {
+        //     isvalid: isEmailValid,
+        //     message: isEmailValid
+        //       ? "Email Address is Valid!"
+        //       : "Email Address not valid!",
+        //   },
+        //   () => this.props.onEmailSubmit(this.state)
+        // );
+    
+        
+        // if (this.state.isvalid) {
+        //   console.log(this.state);
+        // }
+      
   };
 
+  // onChange(e) {
+  //   this.setState({
+  //     email: e.target.value,
+  //   });
+  // }
+
+  // emailValidation() {
+  //   const regex =
+  //     /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+  //   return !(!this.state.email || regex.test(this.state.email) === false);
+  // }
+
+
+
+
   render() {
+    const messageTemplate = this.state.message ? (
+      <div
+        className={"alert alert-" + (this.state.isvalid ? "success" : "danger")}
+        role="alert"
+      >
+        {this.state.message}
+      </div>
+    ) : (
+      ""
+    );
     return (
       <React.Fragment>
         {this.state.isRegister && (
@@ -193,11 +256,13 @@ class Registermember extends Component {
                                     </span>
                                     <input
                                       className="input100"
-                                      type="text"
+                                      type="number"
                                       id="phone"
                                       ref={this.phoneRef}
                                       name="phone"
                                       placeholder="xxxxxxxxxx"
+                                      // maxLength="10"
+                                      pattern="^\d{3}-\d{3}-\d{4}$" required 
                                     />
                                     <span
                                       className="focus-input100"
@@ -250,7 +315,7 @@ class Registermember extends Component {
                                       placeholder="Type your gender"
                                       aria-label="Default select example"
                                     >
-                                      <option>Select Gender</option>
+                                      {/* <option></option> */}
                                       <option>Male</option>
                                       <option>Female</option>
                                     </select>
@@ -273,11 +338,14 @@ class Registermember extends Component {
                                     </span>
                                     <input
                                       className="input100"
-                                      type="text"
+                                      type="number"
                                       id="idcard"
                                       ref={this.idcardRef}
                                       name="idcard"
                                       placeholder="x-xxxx-xxxxx-xx-x"
+                                      // maxLength="13"
+                                      // pattern="^\d{1}-\d{4}-\d{5}-\d{2}-\d{1}$" required 
+                                      pattern="^\d{13}$" required
                                     />
                                     <span
                                       className="focus-input100"
@@ -297,16 +365,19 @@ class Registermember extends Component {
                                     </span>
                                     <input
                                       className="input100"
-                                      type="text"
+                                      type="email"
                                       id="email"
                                       ref={this.emailRef}
-                                      name="username"
+                                      name="email"
                                       placeholder="wt@gmail.com"
+                                      value={this.state.email}
+                                      onChange={this.onChange}
                                     />
+                                    {/* <div className="text-danger">{this.state.errors.email}</div> */}
                                     <span
                                       className="focus-input100"
                                       data-symbol="&#xf159;"
-                                    ></span>
+                                      style={{ color: "red" }}>{this.state.errors["email"]}</span>
                                   </div>
                                   <div
                             class="wrap-input100 validate-input m-b-23"
@@ -320,7 +391,11 @@ class Registermember extends Component {
                               ref={this.passwordRef}
                               name="password"
                               placeholder="Type your password"
+                              maxLength="8"
+                              // value={this.state.input.password} 
+                              // onChange={this.handleChange}
                             />
+                            {/* <div className="text-danger">{this.state.errors.password}</div> */}
                             <span
                               class="focus-input100"
                               data-symbol="&#xf190;"
@@ -343,6 +418,7 @@ class Registermember extends Component {
                                       id="password"
                                       name="password"
                                       placeholder="Type your password"
+                                      maxLength="8"
                                     />
                                     <span
                                       className="focus-input100"
@@ -360,27 +436,32 @@ class Registermember extends Component {
                                       <button
                                         className="login100-form-btn  "
                                         type="submit"
+                                        // onClick={this.onSubmit}
                                         onClick={this.onSubmit}
+                                          
                                       >
+
                                         Submit
                                       </button>
                                     </div>
                                   </div>
-
+                                  {messageTemplate}
                                   <div claas="col-6">
                                 <br />
-                                <div className="wrap-login100-form-btn">
-                                  <div className="login100-form-reg-cancel-bgbtn"></div>
-                                  {/* <button className="login100-form-btn " type ="submit">Login</button> */}
-                                  <button
-                                    type="button"
-                                    className="login100-form-btn"
-                                    // onClick={this.CancelHandler}
-                                    href="/register"
-                                  >
-                                    Cancel
-                                  </button>
-                                </div>
+                                <div claas="col-6">
+                                    <div className="wrap-login100-form-btn">
+                                      <div className="login100-form-bgbtn"></div>
+                                      <button
+                                        className="login100-form-btn  "
+                                        type=""
+                                        href="/login"
+                                          
+                                      >
+
+                                        Cancel
+                                      </button>
+                                    </div>
+                                  </div>
                               </div>
                                 </div>
                               </div>

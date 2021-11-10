@@ -197,7 +197,7 @@ class RegisterOrganizer extends Component {
                                     </span>
                                     <input
                                       className="input100"
-                                      type="text"
+                                      type="number"
                                       id="phone"
                                       ref={this.phoneRef}
                                       name="phone"
@@ -254,7 +254,7 @@ class RegisterOrganizer extends Component {
                                       placeholder="Type your gender"
                                       aria-label="Default select example"
                                     >
-                                      <option>Select Gender</option>
+                                      {/* <option>Select Gender</option> */}
                                       <option>Male</option>
                                       <option>Female</option>
                                     </select>
@@ -277,7 +277,7 @@ class RegisterOrganizer extends Component {
                                     </span>
                                     <input
                                       className="input100"
-                                      type="text"
+                                      type="number"
                                       id="idcard"
                                       ref={this.idcardRef}
                                       name="idcard"
@@ -301,7 +301,7 @@ class RegisterOrganizer extends Component {
                                     </span>
                                     <input
                                       className="input100"
-                                      type="text"
+                                      type="email"
                                       id="email"
                                       ref={this.emailRef}
                                       name="username"
